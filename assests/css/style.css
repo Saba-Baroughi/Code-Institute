@@ -1,0 +1,92 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* Google fonts import */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+/* General Styles */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #3a3a3a;
+  font-family: "Lato", sans-serif;
+}
+/*Header*/
+header {
+  background-color: #ffffff;
+  padding: 0 1rem;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  box-shadow: 0 2px 2px #3a3a3a;
+  /* here after making display none for nav 
+  here to put the chechbox just near the ... we are adding flex*/
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+header a {
+  text-decoration: none;
+  color: inherit;
+  /* it is inherited from body */
+}
+h1 {
+  font-family: "Oswald" sans-serif;
+  text-transform: uppercase;
+  /* letter-spacing: 2px; */
+  font-size: 1.8rem;
+  color: #252525;
+}
+#menu {
+  list-style-type: none;
+  letter-spacing: 4px;
+  font-size: 110%;
+}
+#menu > li {
+  margin-bottom: 1rem;
+}
+.active {
+  border-bottom: solid 1px #3a3a3a;
+}
+/* Navbar styles with dropdown toggle  */
+nav {
+  /* The nav nearest parent is header which is supposed to be relative and it is absolute */
+  position: absolute;
+  background-color: #ffffff;
+  width: 100%;
+  /* it needs to align the against the left of the screen */
+  left: 0;
+  box-shadow: 0 2px 2px #3a3a3a;
+  /* it needs padding to line up the nave elements below the logo(h1) */
+  padding: 0 1rem;
+  display: none;
+  /* now it is shows that the nav behaves differently when we put flex to solve that we put 
+  top=100% which means 100% = bottom of its parent and 0% means top of the parrent  */
+  top: 100%;
+}
+/* Nav-toggle checked */
+#nav-toggle:checked ~ nav {
+  display: block;
+}
+#nav-toggle {
+  /* to remove the checkbox */
+  display: none;
+}
+.nav-toggle-label {
+  /* to make the label bigger */
+  font-size: 2rem;
+}
+
+/*Main*/
+main {
+  background-color: lightblue;
+  flex: 1 0 auto;
+  /* as we put position fixed for header and it goes out of normal flow so if we need to put margin to push the content down  */
+  margin-top: 39px;
+}
+/* Footer */
+footer {
+  background-color: orange;
+}
