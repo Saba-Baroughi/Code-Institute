@@ -13,6 +13,15 @@ body {
   color: #3a3a3a;
   font-family: "Lato", sans-serif;
 }
+h1,
+h2,
+h3 {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  /* letter-spacing: 2px; */
+  font-size: 1.6rem;
+  color: #252525;
+}
 /*Header*/
 header {
   background-color: #ffffff;
@@ -32,13 +41,7 @@ header a {
   color: inherit;
   /* it is inherited from body */
 }
-h1 {
-  font-family: "Oswald" sans-serif;
-  text-transform: uppercase;
-  /* letter-spacing: 2px; */
-  font-size: 1.8rem;
-  color: #252525;
-}
+
 #menu {
   list-style-type: none;
   letter-spacing: 4px;
@@ -59,7 +62,7 @@ nav {
   /* it needs to align the against the left of the screen */
   left: 0;
   box-shadow: 0 2px 2px #3a3a3a;
-  /* it needs padding to line up the nave elements below the logo(h1) */
+  /* it needs padding to line up the nav elements below the logo(h1) */
   padding: 0 1rem;
   display: none;
   /* now it is shows that the nav behaves differently when we put flex to solve that we put 
@@ -81,12 +84,84 @@ nav {
 
 /*Main*/
 main {
-  background-color: lightblue;
   flex: 1 0 auto;
   /* as we put position fixed for header and it goes out of normal flow so if we need to put margin to push the content down  */
   margin-top: 39px;
 }
+/* Hero section */
+#hero {
+  height: 600px;
+  width: 100%;
+  background: url("../images/hero-image.webp") no-repeat center center/cover;
+  position: relative;
+}
+#cover-text {
+  /* the last value is opacity=semi-transparant */
+  background-color: rgb(241, 109, 107, 0.7);
+  font-size: 130%;
+  position: absolute;
+  bottom: 30px;
+  width: 80%;
+  min-height: 200px;
+  padding-top: 40px;
+  padding-left: 10px;
+}
+#cover-text > h2,
+#cover-text > h3 {
+  color: #ffffff;
+}
 /* Footer */
-footer {
-  background-color: orange;
+#social-networks {
+  text-align: center;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+}
+#social-networks i {
+  font-size: 160%;
+  padding: 5%;
+  color: #3a3a3a;
+}
+/* Media query for tablets and larger(768 anduper)
+ */
+@media screen and (min-width: 768px) {
+  /* Header */
+  nav {
+    display: block;
+    position: relative;
+    box-shadow: none;
+    width: fit-content;
+    padding-right: 1rem;
+  }
+  #menu {
+    display: flex;
+  }
+  #menu > li {
+    padding-left: 1rem;
+  }
+  .nav-toggle-label {
+    display: none;
+  }
+  #logo {
+    font-size: 280%;
+    line-height: 75px;
+    margin: 0 0.5rem;
+  }
+  /* Main content */
+  main {
+    /* Push main content down to accommodate larger header */
+    margin-top: 79px;
+  }
+  /*Hero */
+  #cover-text {
+    width: 300px;
+    right: 50px;
+  }
+}
+/* Media query for labtops size of 992px and higher(768 anduper)*/
+@media screen and (min-width: 992px) {
+  #menu a:hover {
+    border-bottom: solid 1px #3a3a3a;
+  }
 }
