@@ -1,28 +1,36 @@
+/* Google fonts import */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+
+/* Asterisk wildcard selector to override default styles added by the browser */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-/* Google fonts import */
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald:wght@200;300;400;500;600;700&display=swap");
-/* General Styles */
+
+/* General styles */
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* Generic project styles */
   color: #3a3a3a;
   font-family: "Lato", sans-serif;
 }
+
 h1,
 h2,
 h3 {
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
-  /* letter-spacing: 2px; */
-  font-size: 1.6rem;
+  letter-spacing: 2px;
   color: #252525;
 }
-/*Header*/
+.hidden-heading {
+  display: none;
+}
+
+/* Header */
 header {
   background-color: #ffffff;
   padding: 0 1rem;
@@ -30,64 +38,62 @@ header {
   z-index: 99;
   width: 100%;
   box-shadow: 0 2px 2px #3a3a3a;
-  /* here after making display none for nav 
-  here to put the chechbox just near the ... we are adding flex*/
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
+
 header a {
   text-decoration: none;
   color: inherit;
-  /* it is inherited from body */
 }
 
 #menu {
-  list-style-type: none;
-  letter-spacing: 4px;
   font-size: 110%;
+  letter-spacing: 4px;
+  list-style-type: none;
 }
+
 #menu > li {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
+
 .active {
-  border-bottom: solid 1px #3a3a3a;
+  border-bottom: 1px solid #3a3a3a;
 }
-/* Navbar styles with dropdown toggle  */
+
+/* Navbar styles with dropdown toggle */
 nav {
-  /* The nav nearest parent is header which is supposed to be relative and it is absolute */
   position: absolute;
   background-color: #ffffff;
   width: 100%;
-  /* it needs to align the against the left of the screen */
   left: 0;
-  box-shadow: 0 2px 2px #3a3a3a;
-  /* it needs padding to line up the nav elements below the logo(h1) */
   padding: 0 1rem;
+  box-shadow: 0 2px 2px #3a3a3a;
   display: none;
-  /* now it is shows that the nav behaves differently when we put flex to solve that we put 
-  top=100% which means 100% = bottom of its parent and 0% means top of the parrent  */
   top: 100%;
 }
-/* Nav-toggle checked */
+
+/* Nav toggle */
 #nav-toggle:checked ~ nav {
   display: block;
 }
+
 #nav-toggle {
-  /* to remove the checkbox */
   display: none;
 }
+
 .nav-toggle-label {
-  /* to make the label bigger */
   font-size: 2rem;
 }
 
-/*Main*/
+/* Main content */
 main {
+  /* Make main element take up any surplus space to push footer down */
   flex: 1 0 auto;
-  /* as we put position fixed for header and it goes out of normal flow so if we need to put margin to push the content down  */
-  margin-top: 39px;
+  margin-top: 47px;
 }
+
 /* Hero section */
 #hero {
   height: 600px;
@@ -95,9 +101,10 @@ main {
   background: url("../images/hero-image.webp") no-repeat center center/cover;
   position: relative;
 }
+
 #cover-text {
-  /* the last value is opacity=semi-transparant */
-  background-color: rgb(241, 109, 107, 0.7);
+  /* Final rgba value sets the opacity so it is semi-transparent */
+  background-color: rgba(241, 109, 107, 0.7);
   font-size: 130%;
   position: absolute;
   bottom: 30px;
@@ -106,10 +113,86 @@ main {
   padding-top: 40px;
   padding-left: 10px;
 }
+
 #cover-text > h2,
 #cover-text > h3 {
   color: #ffffff;
 }
+
+/* Reasons section */
+#reasons {
+  width: 90%;
+  margin: 20px auto;
+}
+
+#reasons h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 280%;
+}
+
+#benefits-physical > div,
+#benefits-mental > div {
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+#benefits p {
+  padding: 0 20px;
+}
+
+#benefits hr {
+  border-top: 1px solid #3a3a3a;
+  margin: 5px 0;
+}
+#circle-cover-bg {
+  background: url(../images/reasons-image.webp) no-repeat top center/cover;
+  height: 90vw;
+  width: 90vw;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  /* makes square to circle */
+  max-width: 300px;
+  max-height: 300px;
+}
+#benefits-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Meetup Times section */
+#times {
+  background: url("../images/dublin-city.webp") no-repeat center/cover;
+  /* Handles responsivity without the need for a media query */
+  display: flex;
+  flex-wrap: wrap;
+}
+#times div {
+  color: #fafafa;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  text-align: center;
+  /* This will not wrap on screens of less than 400px wide. 
+  Each div will expand to fill the available space on its row */
+  flex-basis: 200px;
+  flex-grow: 1;
+  /* Creates a grid of meeting time dives over the background image */
+  border: 2px solid white;
+}
+#times h3 {
+  color: #fafafa;
+}
+/* Gallery page */
+#photos img {
+  width: 100%;
+  /* as it acts like text (an inline elememnt) */
+  line-height: 1em;
+}
+/* to remove white space */
+#photos {
+  line-height: 0;
+}
+
 /* Footer */
 #social-networks {
   text-align: center;
@@ -118,13 +201,21 @@ main {
   justify-content: space-evenly;
   list-style-type: none;
 }
+
 #social-networks i {
   font-size: 160%;
   padding: 5%;
   color: #3a3a3a;
 }
-/* Media query for tablets and larger(768 anduper)
- */
+/* Media query: large or landscape phones (576px and up) */
+@media screen and (min-width: 576px) {
+  #photos {
+    column-gap: 0;
+    column-count: 2;
+  }
+}
+
+/* Media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px) {
   /* Header */
   nav {
@@ -134,34 +225,98 @@ main {
     width: fit-content;
     padding-right: 1rem;
   }
+
   #menu {
     display: flex;
   }
+
   #menu > li {
     padding-left: 1rem;
   }
+
   .nav-toggle-label {
     display: none;
   }
+
   #logo {
     font-size: 280%;
     line-height: 75px;
     margin: 0 0.5rem;
   }
+
   /* Main content */
   main {
     /* Push main content down to accommodate larger header */
     margin-top: 79px;
   }
-  /*Hero */
+
+  /* Hero */
   #cover-text {
     width: 300px;
     right: 50px;
   }
-}
-/* Media query for labtops size of 992px and higher(768 anduper)*/
-@media screen and (min-width: 992px) {
-  #menu a:hover {
-    border-bottom: solid 1px #3a3a3a;
+  /* Gallery */
+  #photos {
+    column-count: 3;
   }
 }
+/* Resons Section */
+#benefits-physical,
+#benefits-mental {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#benefits-physical > div,
+#benefits-mental > div {
+  width: 75%;
+}
+/* for start from right */
+#benefits-mental > div {
+  text-align: end;
+  align-self: flex-end;
+}
+
+/* Large devices (laptops and desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+  #menu a:hover {
+    border-bottom: 1px solid #3a3a3a;
+  }
+  /* Gallery */
+  #photos {
+    column-count: 4;
+  }
+
+  #benefits {
+    display: flex;
+  }
+  #benefits > div {
+    flex: 1;
+  }
+  benefits-image {
+    order: 0;
+  }
+  #benefits-mental {
+    order: 1;
+  }
+  #benefits-mental > div {
+    align-self: flex-start;
+  }
+  #benefits-physical > div {
+    align-self: flex-end;
+  }
+}
+/* #benefits {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #benefits-physical {
+    order: 1;
+  }
+  #benefits-mental {
+    order: 3;
+  }
+  #benefits-image {
+    order: 2;
+  } */
